@@ -143,5 +143,5 @@ git push origin main
 
 **🎉 Fertig! Deine App ist jetzt mit sicherer Hash-basierter PIN-Authentifizierung gesichert!**
 
-**URL:** `https://malerinstitut.github.io/fotouploader/`
+**URL:** `https://malerinstitut.github.io/moseler-fotoupload/`
 **PIN:** Die von dir gewählte 6-stellige PIN (nicht im Code sichtbar) 
