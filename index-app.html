@@ -402,7 +402,7 @@
         projectInfo.style.display = 'none';
         successMessage.style.display = 'block';
         
-        // Projekt-ID in Zwischenablage kopieren
+        // Projekt-ID in Zwischenablage kopieren und Kurzbefehl starten
         const projectId = selectedProject['wert'];
         
         // In Zwischenablage kopieren
@@ -417,6 +417,11 @@
               <p class="mb-0">Die Projekt-ID "${projectId}" wurde in die Zwischenablage kopiert.</p>
             `;
             successMessage.style.display = 'block';
+            
+            // Kurzbefehl starten
+            setTimeout(() => {
+              window.location.href = `shortcuts://run-shortcut?name=WinWorker%20Foto%20Upload%20BETA`;
+            }, 1000);
           });
         } else {
           // Fallback für ältere Browser
@@ -436,6 +441,11 @@
             <p class="mb-0">Die Projekt-ID "${projectId}" wurde in die Zwischenablage kopiert.</p>
           `;
           successMessage.style.display = 'block';
+          
+          // Kurzbefehl starten
+          setTimeout(() => {
+            window.location.href = `shortcuts://run-shortcut?name=WinWorker%20Foto%20Upload%20BETA`;
+          }, 1000);
         }
         
         // Button zurücksetzen
