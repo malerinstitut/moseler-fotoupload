@@ -4,7 +4,7 @@ Eine moderne Web-Anwendung zur Auswahl von Projekt-IDs für den WinWorker Foto U
 
 ## 🚀 Live Demo
 
-Die Anwendung ist verfügbar unter: [https://malerinstitut.github.io/fotouploader/](https://malerinstitut.github.io/fotouploader/)
+Die Anwendung ist verfügbar unter: [https://malerinstitut.github.io/moseler-fotoupload/](https://malerinstitut.github.io/moseler-fotoupload/)
 
 ## ✨ Features
 
@@ -21,7 +21,7 @@ Die Anwendung ist verfügbar unter: [https://malerinstitut.github.io/fotouploade
 
 1. **Repository klonen:**
    ```bash
-   git clone https://github.com/malerinstitut/fotouploader.git
+   git clone https://github.com/malerinstitut/moseler-fotoupload.git
    cd fotouploader
    ```
 
@@ -47,7 +47,7 @@ Die Anwendung ist verfügbar unter: [https://malerinstitut.github.io/fotouploade
    git add .
    git commit -m "Initial commit"
    git branch -M main
-   git remote add origin https://github.com/malerinstitut/fotouploader.git
+   git remote add origin https://github.com/malerinstitut/moseler-fotoupload.git
    git push -u origin main
    ```
 
@@ -95,7 +95,7 @@ Die Anwendung ist für die Integration mit iOS Kurzbefehlen optimiert:
 
 1. **Kurzbefehl erstellen** in der Shortcuts App
 2. **"Webseite öffnen"** Aktion hinzufügen
-  3. **URL eingeben**: `https://malerinstitut.github.io/fotouploader/`
+  3. **URL eingeben**: `https://malerinstitut.github.io/moseler-fotoupload/`
 4. **"Kurzbefehl ausführen"** Aktion hinzufügen
 5. **Name**: `WinWorker Foto Upload BETA`
 
