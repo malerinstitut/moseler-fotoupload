@@ -89,7 +89,7 @@ server {
 
 ### URL wird sein:
 ```
-https://fotouploader-malerinstitut.netlify.app
+https://moseler-fotoupload-malerinstitut.netlify.app
 ```
 
 ---
