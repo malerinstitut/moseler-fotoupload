@@ -402,9 +402,41 @@
         projectInfo.style.display = 'none';
         successMessage.style.display = 'block';
         
-        // Projekt-ID an Kurzbefehl weiterleiten
-        // Diese Zeile wird vom iOS Kurzbefehl abgefangen
-        window.location.href = `shortcuts://run-shortcut?name=WinWorker%20Foto%20Upload%20BETA&input=${encodeURIComponent(selectedProject['wert'])}`;
+        // Projekt-ID in Zwischenablage kopieren
+        const projectId = selectedProject['wert'];
+        
+        // In Zwischenablage kopieren
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(projectId).then(() => {
+            // Erfolgsmeldung anzeigen
+            successMessage.innerHTML = `
+              <h6 class="mb-2">
+                <i class="bi bi-check-circle me-2"></i>
+                Projekt-ID kopiert
+              </h6>
+              <p class="mb-0">Die Projekt-ID "${projectId}" wurde in die Zwischenablage kopiert.</p>
+            `;
+            successMessage.style.display = 'block';
+          });
+        } else {
+          // Fallback für ältere Browser
+          const textArea = document.createElement('textarea');
+          textArea.value = projectId;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          
+          // Erfolgsmeldung anzeigen
+          successMessage.innerHTML = `
+            <h6 class="mb-2">
+              <i class="bi bi-check-circle me-2"></i>
+              Projekt-ID kopiert
+            </h6>
+            <p class="mb-0">Die Projekt-ID "${projectId}" wurde in die Zwischenablage kopiert.</p>
+          `;
+          successMessage.style.display = 'block';
+        }
         
         // Button zurücksetzen
         setTimeout(() => {
