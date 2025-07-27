@@ -23,7 +23,7 @@ git init
 git add .
 git commit -m "Initial commit: Fotouploader Projekt-ID Auswahl"
 git branch -M main
-git remote add origin https://github.com/malerinstitut/fotouploader.git
+git remote add origin https://github.com/malerinstitut/moseler-fotoupload.git
 git push -u origin main
 ```
 
@@ -40,14 +40,14 @@ git push -u origin main
 ### 5. URL für Kunden
 Nach wenigen Minuten ist die App verfügbar unter:
 ```
-https://malerinstitut.github.io/fotouploader/
+https://malerinstitut.github.io/moseler-fotoupload/
 ```
 
 ## 📱 iOS Kurzbefehl anpassen
 
 Im iOS Kurzbefehl die URL ändern zu:
 ```
-https://malerinstitut.github.io/fotouploader/
+https://malerinstitut.github.io/moseler-fotoupload/
 ```
 
 ## 🔧 Wichtige Anpassungen
