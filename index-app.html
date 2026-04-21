@@ -102,11 +102,18 @@
       border-bottom: none;
     }
     
-    .search-results .list-group-item:hover,
     .search-results .list-group-item.active {
       background: linear-gradient(135deg, #e3f2fd, #bbdefb);
       color: #1976d2;
       transform: translateX(5px);
+    }
+
+    @media (hover: hover) {
+      .search-results .list-group-item:hover:not(.active) {
+        background: linear-gradient(135deg, #f1f8ff, #dceeff);
+        color: #1976d2;
+        transform: translateX(5px);
+      }
     }
     
     .btn-primary {
