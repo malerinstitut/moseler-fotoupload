@@ -248,34 +248,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    // === AUTHENTIFIZIERUNG PRÜFEN ===
-    function checkAuth() {
-      const isAuthenticated = localStorage.getItem('fotouploader_authenticated');
-      const authTime = localStorage.getItem('fotouploader_auth_time');
-      
-      // Prüfe ob authentifiziert und nicht älter als 24 Stunden
-      if (!isAuthenticated || !authTime) {
-        window.location.href = 'index.html';
-        return;
-      }
-      
-      const authAge = Date.now() - parseInt(authTime);
-      const maxAge = 24 * 60 * 60 * 1000; // 24 Stunden
-      
-      if (authAge > maxAge) {
-        localStorage.removeItem('fotouploader_authenticated');
-        localStorage.removeItem('fotouploader_auth_time');
-        window.location.href = 'index.html';
-        return;
-      }
-    }
-
-    // Authentifizierung beim Laden prüfen
-    checkAuth();
-
     // === KONFIGURATION ===
-    const SHEET_API_URL = 'https://script.google.com/a/macros/moseler.de/s/AKfycbzfbA9nfgkunsJ6gtGCuSMNx-lOOaY0LO7suAMNfEM8fcye4wf1stM8ejDjHPD5-Q/exec';
-    const CACHE_KEY = 'projektliste_cache_v2';
+    const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbzsKFEeKUyERYqEWlc1Spz9ufZfzDY4wBEXVErsG54qSdG4n5Qq6YIEKFPvYonjZfDgCw/exec';
+    const CACHE_KEY = 'projektliste_cache_v1';
     const CACHE_TIME_MS = 5 * 60 * 1000; // 5 Minuten
 
     let allProjects = [];
@@ -402,51 +377,9 @@
         projectInfo.style.display = 'none';
         successMessage.style.display = 'block';
         
-        // Projekt-ID in Zwischenablage kopieren und Kurzbefehl starten
-        const projectId = selectedProject['wert'];
-        
-        // In Zwischenablage kopieren
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(projectId).then(() => {
-            // Erfolgsmeldung anzeigen
-            successMessage.innerHTML = `
-              <h6 class="mb-2">
-                <i class="bi bi-check-circle me-2"></i>
-                Projekt-ID kopiert
-              </h6>
-              <p class="mb-0">Die Projekt-ID "${projectId}" wurde in die Zwischenablage kopiert.</p>
-            `;
-            successMessage.style.display = 'block';
-            
-            // Kurzbefehl starten
-            setTimeout(() => {
-              window.location.href = `shortcuts://run-shortcut?name=WinWorker%20Foto%20Upload%20BETA`;
-            }, 1000);
-          });
-        } else {
-          // Fallback für ältere Browser
-          const textArea = document.createElement('textarea');
-          textArea.value = projectId;
-          document.body.appendChild(textArea);
-          textArea.select();
-          document.execCommand('copy');
-          document.body.removeChild(textArea);
-          
-          // Erfolgsmeldung anzeigen
-          successMessage.innerHTML = `
-            <h6 class="mb-2">
-              <i class="bi bi-check-circle me-2"></i>
-              Projekt-ID kopiert
-            </h6>
-            <p class="mb-0">Die Projekt-ID "${projectId}" wurde in die Zwischenablage kopiert.</p>
-          `;
-          successMessage.style.display = 'block';
-          
-          // Kurzbefehl starten
-          setTimeout(() => {
-            window.location.href = `shortcuts://run-shortcut?name=WinWorker%20Foto%20Upload%20BETA`;
-          }, 1000);
-        }
+        // Projekt-ID an Kurzbefehl weiterleiten
+        // Diese Zeile wird vom iOS Kurzbefehl abgefangen
+        window.location.href = `shortcuts://run-shortcut?name=WinWorker%20Foto%20Upload%20BETA&input=${encodeURIComponent(selectedProject['wert'])}`;
         
         // Button zurücksetzen
         setTimeout(() => {

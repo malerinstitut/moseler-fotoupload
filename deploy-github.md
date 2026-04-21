@@ -6,7 +6,7 @@
 1. Gehe zu [github.com](https://github.com)
 2. Klicke auf "New repository"
 3. Repository Name: `fotouploader`
-4. Beschreibung: `Projekt-ID Auswahl für WinWorker Foto Upload v0.7`
+4. Beschreibung: `Projekt-ID Auswahl für WinWorker Foto Upload`
 5. Wähle "Public" (für kostenlose GitHub Pages)
 6. Klicke "Create repository"
 

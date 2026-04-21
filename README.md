@@ -1,6 +1,6 @@
 # Fotouploader - Projekt-ID Auswahl
 
-Eine moderne Web-Anwendung zur Auswahl von Projekt-IDs für den WinWorker Foto Upload v0.7 Kurzbefehl auf iOS-Geräten.
+Eine moderne Web-Anwendung zur Auswahl von Projekt-IDs für den WinWorker Foto Upload Kurzbefehl auf iOS-Geräten.
 
 ## 🚀 Live Demo
 
@@ -97,7 +97,7 @@ Die Anwendung ist für die Integration mit iOS Kurzbefehlen optimiert:
 2. **"Webseite öffnen"** Aktion hinzufügen
   3. **URL eingeben**: `https://malerinstitut.github.io/moseler-fotoupload/`
 4. **"Kurzbefehl ausführen"** Aktion hinzufügen
-5. **Name**: `WinWorker Foto Upload v0.7`
+5. **Name**: `WinWorker Foto Upload BETA`
 
 ## 🎨 Customization
 
@@ -161,4 +161,4 @@ Dieses Projekt ist für interne Unternehmensnutzung bestimmt.
 
 ---
 
-**Entwickelt für Moseler - WinWorker Foto Upload v0.7 System** 
+**Entwickelt für Moseler - WinWorker Foto Upload System** 
