@@ -307,13 +307,29 @@
       
       loadingSpinner.style.display = 'block';
       try {
-        const resp = await fetch(SHEET_API_URL);
-        if (!resp.ok) throw new Error('Fehler beim Laden der Projektdaten');
+        const resp = await fetch(SHEET_API_URL, { redirect: 'follow' });
+        const contentType = resp.headers.get('content-type') || '';
+        console.log('[loadProjects] status', resp.status, 'content-type', contentType, 'url', resp.url);
+        if (!resp.ok) {
+          const text = await resp.text();
+          console.error('[loadProjects] HTTP-Fehler Body:', text.slice(0, 500));
+          throw new Error('HTTP ' + resp.status + ' ' + resp.statusText);
+        }
+        if (!contentType.includes('application/json')) {
+          const text = await resp.text();
+          console.error('[loadProjects] Keine JSON-Antwort. Anfang:', text.slice(0, 500));
+          throw new Error('Antwort ist kein JSON (möglicherweise Login-Seite von Google)');
+        }
         const data = await resp.json();
+        if (!Array.isArray(data)) {
+          console.error('[loadProjects] JSON kein Array:', data);
+          throw new Error('Antwort ist kein Array');
+        }
         allProjects = data;
         localStorage.setItem(CACHE_KEY, JSON.stringify({ data, ts: Date.now() }));
       } catch (e) {
-        showAlert('Fehler beim Laden der Projektdaten. Bitte später erneut versuchen.', 'danger');
+        console.error('[loadProjects] Fehler:', e);
+        showAlert('Fehler beim Laden der Projektdaten: ' + e.message, 'danger');
       } finally {
         loadingSpinner.style.display = 'none';
       }
